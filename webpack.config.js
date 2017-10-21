@@ -1,3 +1,5 @@
+const Dotenv = require('dotenv-webpack');
+
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -14,5 +16,11 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: "dist/"
-  }
+  },
+  plugins: [
+    new Dotenv({
+      path: './.env',
+      safe: false
+    })
+  ]
 }
